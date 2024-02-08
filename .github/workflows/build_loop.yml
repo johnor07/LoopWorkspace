@@ -29,6 +29,7 @@ jobs:
         with:
           submodules: recursive
 
+Submodule LoopKit contains modified content
 diff --git a/LoopKit/LoopKitUI/Extensions/Environment+Authenticate.swift b/LoopKit/LoopKitUI/Extensions/Environment+Authenticate.swift
 index 8dff88d..6732735 100644
 --- a/LoopKit/LoopKitUI/Extensions/Environment+Authenticate.swift
