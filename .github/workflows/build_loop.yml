@@ -281,19 +281,30 @@ jobs:
           #   the line following a "\" should not be blank
           /bin/bash -c "$(curl -fsSL \
           https://raw.githubusercontent.com/loopandlearn/lnl-scripts/main/CustomizationSelect.sh)" \
-          no_auth
+          dexcom_upload_readings \
+          future_carbs_4h \
+          high_carb_limit \
+          no_auth \
+          override_sens \
+          now_line \
+          lnl_icon \
+          watch_title \
+          2hlollipop \
+          meal_days \
+          2002 \
+          basal_lock \
+          live_activity
 
           # the final customization listed above CANNOT have a continuation character
           # more customizations can be pasted after this line
-          
           - name: Patch Match Tables
           run: |
           TABLE_PRINTER_PATH=$(ruby -e 'puts Gem::Specification.find_by_name("fastlane").gem_dir')/match/lib/match/table_printer.rb
           if [ -f "$TABLE_PRINTER_PATH" ]; then
-            sed -i "" "/puts(Terminal::Table.new(params))/d" "$TABLE_PRINTER_PATH"
+          sed -i "" "/puts(Terminal::Table.new(params))/d" "$TABLE_PRINTER_PATH"
           else
-            echo "table_printer.rb not found"
-            exit 1
+          echo "table_printer.rb not found"
+          exit 1
           fi
 
       # Install project dependencies
